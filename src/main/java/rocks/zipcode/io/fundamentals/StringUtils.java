@@ -1,7 +1,9 @@
 package rocks.zipcode.io.fundamentals;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * @author leon on 10/01/2019.
@@ -17,7 +19,7 @@ public class StringUtils {
         // get power-set of range
 
         // for every set in power-set
-            // uppercase indices of string using set
+        // uppercase indices of string using set
         return null;
     }
 
@@ -27,7 +29,27 @@ public class StringUtils {
      * @return near-identical string whose characters at specified indices are capitalized
      */
     public static String upperCaseIndices(String string, Integer... indices) {
+        
+
+
         return null;
+
+        //        char[] charArr = string.toCharArray();
+//
+//        for (Integer integer : indices) {
+//            Character.toUpperCase(charArr[integer]);
+//        }
+//
+//        return BasicStringUtils.getString(charArr);
+
+//       StringBuilder sb = new StringBuilder(string);
+//
+//        for(Integer integer : indices) {
+//            Character.toUpperCase(sb.charAt(integer));
+//        }
+//
+//        String out = sb.toString();
+//        return out;
     }
 
     /**
@@ -37,7 +59,27 @@ public class StringUtils {
      * @return near-identical string with `valueToBeInserted` inserted at `index`
      */
     public static String insertAtIndex(String stringToBeManipulated, String valueToBeInserted, Integer index) {
-        return null;
+
+        String[] strArr = stringToBeManipulated.split("");
+        List<String> stringList = new ArrayList<>();
+
+        for (int i = 0; i < strArr.length + 1; i++) {
+            if (i < index) {
+                stringList.add(strArr[i]);
+            } else if (i == index) {
+                stringList.add(valueToBeInserted);
+            } else if (i > index) {
+                stringList.add(strArr[i - 1]);
+            }
+
+        }
+        StringBuilder sb = new StringBuilder();
+        for (String s : stringList) {
+            sb.append(s);
+        }
+        String output = sb.toString();
+
+        return output;
     }
 
     /**
@@ -47,6 +89,9 @@ public class StringUtils {
      * @return near-identical string with character at `index` replaced with `replacementValue`
      */
     public static String replaceAtIndex(String stringToBeManipulated, Character replacementValue, Integer index) {
-        return null;
+        StringBuilder sb = new StringBuilder(stringToBeManipulated);
+        sb.setCharAt(index, replacementValue);
+
+        return sb.toString();
     }
 }

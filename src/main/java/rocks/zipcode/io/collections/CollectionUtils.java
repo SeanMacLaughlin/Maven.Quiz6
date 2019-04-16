@@ -1,5 +1,6 @@
 package rocks.zipcode.io.collections;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -11,7 +12,8 @@ public class CollectionUtils {
      * @return list with identical contents
      */
     public static <E> List<E> toList(Collection collection) {
-        return null;
+        List<E> outList = new ArrayList<>(collection);
+        return outList;
     }
 
     /**
@@ -20,7 +22,10 @@ public class CollectionUtils {
      * @return true if `nestedCollection` contains a collection with contents identical to `collection`
      */
     public static Boolean contains(Collection<? extends Collection<?>> nestedCollection, Collection<?> collection) {
-        return null;
+        if(nestedCollection.contains(collection)) {
+            return true;
+        }
+        return false;
     }
 
     /**

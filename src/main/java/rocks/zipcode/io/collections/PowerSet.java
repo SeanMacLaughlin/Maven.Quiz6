@@ -1,8 +1,6 @@
 package rocks.zipcode.io.collections;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author leon on 10/01/2019.
@@ -18,7 +16,19 @@ public class PowerSet<TypeOfSet> {
      * @return the powerset of `originalSet`
      */
     public Set<Set<TypeOfSet>> permute() {
-        return null;
+        List<TypeOfSet> list = new ArrayList<>(originalSet);
+        int n = list.size();
+
+        Set<Set<TypeOfSet>> powerSet = new HashSet<Set<TypeOfSet>>();
+
+        for( long i = 0; i < (1 << n); i++) {
+            Set<TypeOfSet> element = new HashSet<>();
+            for( int j = 0; j < n; j++ )
+                if( (i >> j) % 2 == 1 ) element.add(list.get(j));
+            powerSet.add(element);
+        }
+
+        return powerSet;
     }
 
     /**

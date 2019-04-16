@@ -1,5 +1,10 @@
 package rocks.zipcode.io.arrays;
 
+import rocks.zipcode.io.fundamentals.BasicStringUtils;
+
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
 /**
  * @author leon on 24/01/2019.
  */
@@ -10,7 +15,9 @@ public class ArrayUtils {
      * @return array of all integers between `start` and `stop`
      */
     public static Integer[] getRange(Integer start, Integer end) {
-        return null;
+        int[] range = IntStream.rangeClosed(start, end).toArray();
+        Integer[] what = Arrays.stream( range ).boxed().toArray( Integer[]::new );
+        return what;
     }
 
     /**
@@ -18,7 +25,7 @@ public class ArrayUtils {
      * @return array with identical contents in primitive-array form
      */
     public static char[] unbox(Character[] array) {
-        return null;
+        return BasicStringUtils.getString(array).toCharArray();
     }
 
     /**
@@ -26,6 +33,6 @@ public class ArrayUtils {
      * @return array with identical contents in nonprimitive-array form
      */
     public static Character[] box(char[] array) {
-        return null;
+        return BasicStringUtils.getString(array).chars().mapToObj(c -> (char)c).toArray(Character[]::new);
     }
 }
