@@ -1,8 +1,12 @@
 package rocks.zipcode.io.collections;
 
+import com.sun.org.apache.xerces.internal.xs.datatypes.ObjectList;
+
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class CollectionUtils {
 
@@ -33,6 +37,9 @@ public class CollectionUtils {
      * @return a single collection containing each of the collections passed in as an argument
      */
     public static Collection<? extends Collection<?>> nest(Collection<?>... collections) {
+//        for(Collection<?> collection : collections) {
+//
+//        }
         return null;
     }
 
@@ -41,6 +48,11 @@ public class CollectionUtils {
      * @return a single collection containing the aggregate contents of each collection passed in as an argument
      */
     public static Collection<?> flatten(Collection<?>... collections) {
+//        List<?> listC = new ArrayList<>();
+//        for(Collection<?> collectionz : collections) {
+//             listC.addAll(collectionz);
+//        }
+
         return null;
     }
 }

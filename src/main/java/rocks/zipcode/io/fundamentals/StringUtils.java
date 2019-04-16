@@ -29,27 +29,13 @@ public class StringUtils {
      * @return near-identical string whose characters at specified indices are capitalized
      */
     public static String upperCaseIndices(String string, Integer... indices) {
-        
+        StringBuilder sb = new StringBuilder(string);
 
+        for(Integer integer : indices) {
+            sb.setCharAt(integer, Character.toUpperCase(sb.charAt(integer)));
+        }
 
-        return null;
-
-        //        char[] charArr = string.toCharArray();
-//
-//        for (Integer integer : indices) {
-//            Character.toUpperCase(charArr[integer]);
-//        }
-//
-//        return BasicStringUtils.getString(charArr);
-
-//       StringBuilder sb = new StringBuilder(string);
-//
-//        for(Integer integer : indices) {
-//            Character.toUpperCase(sb.charAt(integer));
-//        }
-//
-//        String out = sb.toString();
-//        return out;
+        return sb.toString();
     }
 
     /**
